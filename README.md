@@ -1,12 +1,18 @@
 ![Screenshot](assets/img/Screenshot.png)
 
 # Projekti ülespanek
+
 ## Andmebaasi seadistamine
 1. Impordi `doc/database.sql` fail kohalikku MySQL andmebaasi: `mysql -u root doc/database.sql -e "CREATE DATABASE tahvel"` ja `mysql -u root tahvel < doc/database.sql`
 1. Kopeeri `config.php.sample` `config.php`ks ja modifitseeri vastavalt vajadusele
+
 ## Sõltuvuste paigaldamine
 1. Vajadusel paigalda Composer (https://getcomposer.org) ja siis pane oma terminal korraks kinni (ja IDE ka, kui terminali läbi selle avanud oled) 
 1. Käivita käsurealt `composer install` projekti kaustas olles 
+
+## Õpetaja ja perioodi seadistamine
+1. Paranda `config.php`s `TAHVEL_TEACHER_ID` enda Tahvli õpetaja id peale. Selle saab Tahvlis minnes Tunniplaan ja vajutades enda nime peale (ilmub URLi peale teacher taha)
+1. Paranda `config.php`s `TAHVEL_TIMETABLE_FROM` ja `TAHVEL_TIMETABLE_TO` soovitud vahemiku peale.
 
 # Kasutamine
 Kuivõrd tahvel.edu.ee'sse peab sisselogima kaheastmeliselt, tuleb meil sinna sisse logida käsitsi ja pärast seda kopeerida saadud sessiooniküpsis.

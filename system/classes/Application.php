@@ -58,6 +58,8 @@ class Application
         $controller->params = $this->params;
         $controller->auth = $this->auth;
 
+        $controller->selectedYear = Year::getCurrentYear();
+
         // Check if the user has extended Controller
         if (!isset($controller->requires_auth)) {
             $errors[] = 'You forgot the "<i>extends Controller</i>" part for the class <i>' . $controller->controller . '</i> in controllers/' . $controller->controller . '.php</i>. Fix it.';
@@ -164,7 +166,6 @@ class Application
         define('BASE_URL', rtrim($uri, '/') . '/');
     }
 
-
     private function process_uri()
     {
 
@@ -237,7 +238,6 @@ class Application
 
         header('Location: ' . str_replace('http://', 'https://', BASE_URL));
     }
-
 
     private function https_is_off()
     {

@@ -4,7 +4,6 @@
  * @property Auth auth
  * @property mixed params
  */
-
 class Controller
 {
     public $template = 'master';
@@ -13,6 +12,10 @@ class Controller
     function render($template)
     {
         global $supported_languages;
+        global $selectedYear;
+
+        //Tahvel::updateStudyYears();
+        $studyYears = Year::getAll();
 
         // Make controller variables available to view
         extract(get_object_vars($this));

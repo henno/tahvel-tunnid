@@ -6,9 +6,10 @@ class welcome extends Controller
     function index()
     {
 
-        //Tahvel::updateGroups();
+        // Refresh data from tahvel.edu.ee
+        Tahvel::updateGroups();
         Tahvel::updateTimetableEvents();
-        Tahvel::updateJournals();
+        Tahvel::updateJournals($this->selectedYear['id']);
 
         // Timetable data
         $rows = get_all("

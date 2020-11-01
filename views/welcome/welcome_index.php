@@ -23,7 +23,7 @@
         background-color: #f3f3f3 !important;
     }
 </style>
-<table class="table table-nonfluid" id="resultTable" onkeyup="myFunction()">
+<table class="table " id="resultTable" onkeyup="myFunction()">
     <thead>
     <tr>
         <th>Kuupäev</th>

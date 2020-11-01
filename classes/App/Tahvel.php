@@ -118,7 +118,7 @@ class Tahvel
         $journals = Tahvel::getJournals($studyYearId);
 
         if(empty($journals)){
-            throw new \Exception('Päevikuid ei leitud. Tõenäoliselt on tahvel.edu.ee sessioon aegunud. Logi uuesti sisse.');
+            throw new \Exception('Päevikuid ei leitud. Tõenäoliselt on tahvel.edu.ee sessioon aegunud. Logi uuesti sisse (vt READMEd).');
         }
 
         // Delete all old journals

@@ -105,6 +105,7 @@ class Tahvel
         if (curl_errno($ch)) {
             echo 'Error:' . curl_error($ch);
         }
+
         curl_close($ch);
 
         $result = json_decode($result, true);
@@ -113,11 +114,16 @@ class Tahvel
 
     static function updateJournals($studyYearId)
     {
+        // Get journals
+        $journals = Tahvel::getJournals($studyYearId);
+
+        if(empty($journals)){
+            throw new \Exception('Päevikuid ei leitud. Tõenäoliselt on tahvel.edu.ee sessioon aegunud. Logi uuesti sisse.');
+        }
+
         // Delete all old journals
         q('truncate table journals');
 
-        // Get journals
-        $journals = Tahvel::getJournals($studyYearId);
 
         // Get existing studentGroups
         $groupsByName = Group::getAll('groupCode');
@@ -367,6 +373,7 @@ class Tahvel
         if (curl_errno($ch)) {
             echo 'Error:' . curl_error($ch);
         }
+
         curl_close($ch);
 
         $result = json_decode($result, true);

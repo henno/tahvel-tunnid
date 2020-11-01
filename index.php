@@ -19,4 +19,9 @@ if (file_exists('config.php')) {
 
 
 // Load app
-$app = new Application;
+try {
+    $app = new Application;
+} catch (\Exception $e) {
+    $errors[] = $e->getMessage();
+    require 'templates/error_template.php';
+}

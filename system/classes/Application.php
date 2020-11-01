@@ -58,6 +58,8 @@ class Application
         $controller->params = $this->params;
         $controller->auth = $this->auth;
 
+        Tahvel::updateStudyYears();
+        $controller->studyYears = Year::getAll();
         $controller->selectedYear = Year::getCurrentYear();
 
         // Check if the user has extended Controller
